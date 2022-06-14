@@ -12,7 +12,7 @@ const Link = (props: LinkProps & { isExternal?: boolean }) => {
         onClick={(e) => {
           e.preventDefault();
           navigate("/empty");
-          (window as any).electron.openWeb(props.to);
+          window.electron.openWeb(props.to);
         }}
       >
         {props.children}
@@ -24,7 +24,7 @@ const Link = (props: LinkProps & { isExternal?: boolean }) => {
       {...props}
       onClick={(e) => {
         e.preventDefault();
-        (window as any).electron.closeWeb();
+        window.electron.closeWeb();
         navigate(props.to);
         props.onClick && props.onClick(e);
       }}
