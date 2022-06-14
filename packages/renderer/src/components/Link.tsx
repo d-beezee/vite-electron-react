@@ -12,7 +12,7 @@ const Link = (props: LinkProps & { isExternal?: boolean }) => {
         onClick={(e) => {
           e.preventDefault();
           navigate("/empty");
-          window.electron.openWeb(props.to);
+          typeof props.to === "string" && window.electron.openWeb(props.to);
         }}
       >
         {props.children}

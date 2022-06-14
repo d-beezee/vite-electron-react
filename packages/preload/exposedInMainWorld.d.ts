@@ -1,14 +1,16 @@
 interface Window {
+  electron: {
     /**
-     * Expose Environment versions.
+     * Opens a new web page in the main window.
      * @example
-     * console.log( window.versions )
+     * openWeb("https://www.google.com");
      */
-    readonly versions: NodeJS.ProcessVersions;
+    openWeb: (url: string) => void;
     /**
-     * Safe expose node.js API
+     * Closes the current web page.
      * @example
-     * window.nodeCrypto('data')
+     * closeWeb();
      */
-    readonly nodeCrypto: { sha256sum(data: import("crypto").BinaryLike): string; };
+    closeWeb: () => void;
+  };
 }
