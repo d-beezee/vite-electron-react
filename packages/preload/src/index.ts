@@ -1,7 +1,7 @@
-import {contextBridge} from 'electron';
+import { contextBridge, ipcRenderer } from 'electron';
 
-import type {BinaryLike} from 'crypto';
-import {createHash} from 'crypto';
+import type { BinaryLike } from 'crypto';
+import { createHash } from 'crypto';
 
 /**
  * The "Main World" is the JavaScript context that your main renderer code runs in.
@@ -37,4 +37,9 @@ contextBridge.exposeInMainWorld('nodeCrypto', {
     hash.update(data);
     return hash.digest('hex');
   },
+});
+
+contextBridge.exposeInMainWorld('electron', {
+  openWeb: (url: string) => ipcRenderer.send('open-web-page', url),
+  closeWeb: () => ipcRenderer.send('close-web-page'),
 });
