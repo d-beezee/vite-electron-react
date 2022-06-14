@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const aStyle: React.CSSProperties = {
   color: "#42b983",
@@ -11,22 +11,10 @@ const fieldSetStyle: React.CSSProperties = {
 
 const Home: React.FC = () => {
   const [count, setCount] = useState<number>(0);
-  const [rawString, setRawString] = useState<string>("HelloWorld");
 
   const onCountClicked = useCallback(() => {
     setCount(count + 1);
   }, [count]);
-
-  const onInputChange = useCallback(
-    (event) => {
-      setRawString(event.target.value);
-    },
-    [rawString],
-  );
-
-  const hashedString = useMemo(() => {
-    return window.nodeCrypto.sha256sum(rawString);
-  }, [rawString]);
 
   return (
     <div>
@@ -55,7 +43,11 @@ const Home: React.FC = () => {
           Vite Documentation
         </a>{" "}
         |{" "}
-        <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noreferrer">
+        <a
+          href="https://reactjs.org/docs/getting-started.html"
+          target="_blank"
+          rel="noreferrer"
+        >
           React Documentation
         </a>
       </p>
@@ -63,19 +55,6 @@ const Home: React.FC = () => {
       <fieldset style={fieldSetStyle}>
         <legend>Test React Reactivity</legend>
         <button onPointerUp={onCountClicked}>count is: {count}</button>
-      </fieldset>
-
-      <fieldset style={fieldSetStyle}>
-        <legend>Test Node.js API</legend>
-        <label>
-          Raw value
-          <input value={rawString} type="text" onChange={onInputChange} />
-        </label>
-        <br />
-        <label>
-          Hashed by node:crypto
-          <input value={hashedString} type="text" readOnly={true} />
-        </label>
       </fieldset>
 
       <p>
