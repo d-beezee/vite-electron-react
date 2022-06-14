@@ -7,6 +7,15 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "rules": {
+    "quotes": [
+      2,
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ]
+  },
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
     "ecmaVersion": 12,

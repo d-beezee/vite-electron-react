@@ -1,17 +1,17 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from "react";
 
 const aStyle: React.CSSProperties = {
-  color: '#42b983',
+  color: "#42b983",
 };
 
 const fieldSetStyle: React.CSSProperties = {
-  margin: '2rem',
-  padding: '1rem',
+  margin: "2rem",
+  padding: "1rem",
 };
 
 const Home: React.FC = () => {
   const [count, setCount] = useState<number>(0);
-  const [rawString, setRawString] = useState<string>('HelloWorld');
+  const [rawString, setRawString] = useState<string>("HelloWorld");
 
   const onCountClicked = useCallback(() => {
     setCount(count + 1);
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       <p>
         For a guide and recipes on how to configure / customize this project,
         <br />
-        check out the{' '}
+        check out the{" "}
         <a
           href="https://github.com/cawa-93/vite-electron-builder"
           rel="noopener noreferrer"
@@ -53,8 +53,8 @@ const Home: React.FC = () => {
           style={aStyle}
         >
           Vite Documentation
-        </a>{' '}
-        |{' '}
+        </a>{" "}
+        |{" "}
         <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noreferrer">
           React Documentation
         </a>

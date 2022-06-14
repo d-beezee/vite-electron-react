@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const divStyle: React.CSSProperties = {
-  textAlign: 'left',
-  display: 'grid',
-  justifyContent: 'center',
+  textAlign: "left",
+  display: "grid",
+  justifyContent: "center",
 };
 
 const About: React.FC = () => {
